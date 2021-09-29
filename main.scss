@@ -12,8 +12,9 @@ $height: 100vh;
 
 * {
     box-sizing: border-box;
-  }
+}
 
+// MAIN BACKGROUND
 .content-wrapper {
     background-image: url('/assets/background.png');
     height: $height;
@@ -29,6 +30,8 @@ $height: 100vh;
         }
     }
 }
+
+// HEADER TITLE AND BUTTON
 .header-box {
     left: 162px;
     bottom: 190px;
@@ -80,6 +83,8 @@ $height: 100vh;
         }
     }
 }
+
+// SOCIAL ICONS
 .icons-container {
     display: flex;
     flex-direction: column;
@@ -103,37 +108,7 @@ $height: 100vh;
     }
 }
 
-.show-explore-box {
-    animation-name: scale-in-bl;
-    animation-duration: 0.8s;
-    animation-timing-function: ease;
-    animation-delay: 0s;
-    animation-iteration-count: 1;
-    animation-direction: normal;
-    animation-fill-mode: none;
-    clip-path: polygon(4% 0, 96% 0, 100% 43%, 100% 58%, 96% 100%, 5% 100%, 0 57%, 0 40%);
-}
-
-.hide-explore-box {
-    clip-path: polygon(4% 0, 96% 0, 100% 43%, 100% 58%, 96% 100%, 5% 100%, 0 57%, 0 40%);
-    animation-name: scale-out-bl;
-    animation-duration: 0.8s;
-    animation-timing-function: ease;
-    animation-delay: 0s;
-    animation-iteration-count: 1;
-    animation-direction: normal;
-    animation-fill-mode: none;
-
-    @include mobile{
-        animation-name: scale-out-bottom;
-        animation-duration: 1s;
-        animation-timing-function: ease;
-        animation-delay: 0s;
-        animation-iteration-count: 1;
-        animation-direction: normal;
-        animation-fill-mode: none;
-    }
-}
+// EXPLORE DETAILS 
 
 .explore-box {
     left: 162px;
@@ -202,6 +177,41 @@ $height: 100vh;
         transform: rotate(-45deg);
     }
 }
+
+// EXPLORE DETAILS ANIMATION
+.show-explore-box {
+    animation-name: scale-in-bl;
+    animation-duration: 0.8s;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: none;
+    clip-path: polygon(4% 0, 96% 0, 100% 43%, 100% 58%, 96% 100%, 5% 100%, 0 57%, 0 40%);
+}
+
+.hide-explore-box {
+    clip-path: polygon(4% 0, 96% 0, 100% 43%, 100% 58%, 96% 100%, 5% 100%, 0 57%, 0 40%);
+    animation-name: scale-out-bl;
+    animation-duration: 0.8s;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: none;
+
+    @include mobile{
+        animation-name: scale-out-bottom;
+        animation-duration: 1s;
+        animation-timing-function: ease;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        animation-fill-mode: none;
+    }
+}
+
+// ANIMATION FRAMES
 
 @keyframes scale-in-bl {
     0%{
