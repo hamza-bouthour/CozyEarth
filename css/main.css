@@ -1,7 +1,84 @@
 * {
   box-sizing: border-box;
 }
-body {
-  background-color: aqua;
+
+.content-wrapper {
+  overflow: hidden;
+  background-image: url("/assets/background.png");
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
+.content-wrapper .left-container {
+  background-color: #611818;
+  height: 100vh;
+}
+@media (max-width: 768px) {
+  .content-wrapper .left-container {
+    display: none;
+  }
+}
+
+.header-box {
+  position: absolute;
+  left: 162px;
+  bottom: 190px;
+}
+@media (max-width: 768px) {
+  .header-box {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+.header-box h1 {
+  font-family: "Merriweather", serif;
+  color: #fcfcfc;
+  font-size: 170px;
+}
+@media (max-width: 768px) {
+  .header-box h1 {
+    font-size: 100px;
+  }
+}
+.header-box .header-details-box {
+  margin-left: 45px;
+}
+.header-box .header-details-box span {
+  color: #fcfcfc;
+  font-size: 23px;
+  vertical-align: middle;
+  margin-left: 20px;
+}
+
+.icons-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  bottom: 30px;
+  right: 15px;
+}
+@media (max-width: 768px) {
+  .icons-container {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+.icons-container .social-icons {
+  margin: 10px;
+}
+@media (max-width: 768px) {
+  .icons-container .social-icons {
+    margin-left: 3px;
+  }
+  .icons-container .social-icons svg {
+    width: 35px;
+  }
+}
+
 /*# sourceMappingURL=main.css.map */

@@ -1,3 +1,92 @@
-body {
-    background-color: red;
+$main-color: #611818;
+$text-color: #fcfcfc;
+$headers-font: 'Merriweather', serif;
+$width: 768px;
+$height: 100vh;
+
+@mixin mobile {
+    @media (max-width: $width) {
+        @content
+    }
 }
+
+* {
+    box-sizing: border-box;
+  }
+
+.content-wrapper {
+    overflow: hidden;
+    background-image: url('/assets/background.png');
+    height: $height;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+    .left-container {
+        background-color: $main-color;
+        height: $height;
+
+        @include mobile {
+            display: none;
+        }
+    }
+}
+.header-box {
+    position: absolute;
+    left: 162px;
+    bottom: 190px;
+
+    @include mobile{
+        position:absolute;
+        left:50%;
+        top:50%; 
+        transform: translate(-50%, -50%); 
+    }
+    
+    h1 {
+        font-family: $headers-font;
+        color: $text-color;
+        font-size: 170px;
+
+        @include mobile {
+            font-size: 100px;
+        }
+    }
+    .header-details-box {
+        margin-left: 45px;
+
+        span {
+            color: $text-color;
+            font-size: 23px;
+            vertical-align: middle;
+            margin-left: 20px;
+        }
+    }
+}
+.icons-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    bottom: 30px;
+    right: 15px;
+
+    @include mobile{
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .social-icons {
+        margin: 10px;
+
+        @include mobile{
+            margin-left: 3px;
+            svg {
+                width: 35px;
+            }
+        }
+    }
+}
+
