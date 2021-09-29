@@ -33,7 +33,7 @@ $height: 100vh;
 
 // HEADER TITLE AND BUTTON
 .header-box {
-    left: 162px;
+    left: 152px;
     bottom: 190px;
 
     & svg:hover {
@@ -66,7 +66,7 @@ $height: 100vh;
     h1 {
         font-family: $headers-font;
         color: $text-color;
-        font-size: 170px;
+        font-size: 160px;
 
         @include mobile {
             font-size: 100px;

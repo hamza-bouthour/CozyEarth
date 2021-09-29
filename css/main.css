@@ -19,7 +19,7 @@
 }
 
 .header-box {
-  left: 162px;
+  left: 152px;
   bottom: 190px;
 }
 .header-box svg:hover {
@@ -48,7 +48,7 @@
 .header-box h1 {
   font-family: "Merriweather", serif;
   color: #fcfcfc;
-  font-size: 170px;
+  font-size: 160px;
 }
 @media (max-width: 768px) {
   .header-box h1 {
@@ -83,39 +83,6 @@
 @media (max-width: 768px) {
   .icons-container .social-icons svg {
     width: 35px;
-  }
-}
-
-.show-explore-box {
-  animation-name: scale-in-bl;
-  animation-duration: 0.8s;
-  animation-timing-function: ease;
-  animation-delay: 0s;
-  animation-iteration-count: 1;
-  animation-direction: normal;
-  animation-fill-mode: none;
-  clip-path: polygon(4% 0, 96% 0, 100% 43%, 100% 58%, 96% 100%, 5% 100%, 0 57%, 0 40%);
-}
-
-.hide-explore-box {
-  clip-path: polygon(4% 0, 96% 0, 100% 43%, 100% 58%, 96% 100%, 5% 100%, 0 57%, 0 40%);
-  animation-name: scale-out-bl;
-  animation-duration: 0.8s;
-  animation-timing-function: ease;
-  animation-delay: 0s;
-  animation-iteration-count: 1;
-  animation-direction: normal;
-  animation-fill-mode: none;
-}
-@media (max-width: 768px) {
-  .hide-explore-box {
-    animation-name: scale-out-bottom;
-    animation-duration: 1s;
-    animation-timing-function: ease;
-    animation-delay: 0s;
-    animation-iteration-count: 1;
-    animation-direction: normal;
-    animation-fill-mode: none;
   }
 }
 
@@ -178,6 +145,39 @@
 }
 .explore-box .close:after {
   transform: rotate(-45deg);
+}
+
+.show-explore-box {
+  animation-name: scale-in-bl;
+  animation-duration: 0.8s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  clip-path: polygon(4% 0, 96% 0, 100% 43%, 100% 58%, 96% 100%, 5% 100%, 0 57%, 0 40%);
+}
+
+.hide-explore-box {
+  clip-path: polygon(4% 0, 96% 0, 100% 43%, 100% 58%, 96% 100%, 5% 100%, 0 57%, 0 40%);
+  animation-name: scale-out-bl;
+  animation-duration: 0.8s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+}
+@media (max-width: 768px) {
+  .hide-explore-box {
+    animation-name: scale-out-bottom;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: none;
+  }
 }
 
 @keyframes scale-in-bl {
