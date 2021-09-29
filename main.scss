@@ -2,7 +2,7 @@ $main-color: #611818;
 $text-color: #fcfcfc;
 $headers-font: 'Merriweather', serif;
 $width: 768px;
-$height: 110vh;
+$height: 100vh;
 
 @mixin mobile {
     @media (max-width: $width) {
@@ -13,40 +13,51 @@ $height: 110vh;
 * {
     box-sizing: border-box;
   }
-.hidden {
-    display: none;
-}
+
 .content-wrapper {
-    overflow: hidden;
     background-image: url('/assets/background.png');
     height: $height;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
 
     .left-container {
         background-color: $main-color;
         height: $height;
-
+        
         @include mobile {
             display: none;
         }
     }
 }
 .header-box {
-    position: absolute;
     left: 162px;
     bottom: 190px;
 
-    &:hover {
+    & svg:hover {
         cursor: pointer;
+        
+        &:active {
+            transform: scale(.5);
+
+        }
+        &:not(:active) {
+            transform: scale(1);
+        }
     }
 
     @include mobile{
-        position:absolute;
         left:50%;
         top:50%; 
         transform: translate(-50%, -50%); 
+    }
+
+    .header-text-animated {
+        -webkit-animation: fadein 1s;
+        -moz-animation: fadein 1s;
+        -ms-animation: fadein 1s;
+        -o-animation: fadein 1s;
+        animation: fadein 1s;
+            
     }
     
     h1 {
@@ -73,55 +84,87 @@ $height: 110vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    position: absolute;
     bottom: 30px;
     right: 15px;
 
     @include mobile{
         display: block;
-        position: absolute;
         top: 0;
         right: 0;
+        height: 35px;
     }
 
     .social-icons {
-        margin: 10px;
-
         @include mobile{
-            margin-left: 3px;
             svg {
                 width: 35px;
             }
         }
     }
 }
+
+.show-explore-box {
+    animation-name: scale-in-bl;
+    animation-duration: 0.8s;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: none;
+    clip-path: polygon(4% 0, 96% 0, 100% 43%, 100% 58%, 96% 100%, 5% 100%, 0 57%, 0 40%);
+}
+
+.hide-explore-box {
+    clip-path: polygon(4% 0, 96% 0, 100% 43%, 100% 58%, 96% 100%, 5% 100%, 0 57%, 0 40%);
+    animation-name: scale-out-bl;
+    animation-duration: 0.8s;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: none;
+
+    @include mobile{
+        animation-name: scale-out-bottom;
+        animation-duration: 1s;
+        animation-timing-function: ease;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        animation-fill-mode: none;
+    }
+}
+
 .explore-box {
-    position: absolute;
     left: 162px;
     bottom: 43px;
     background-color: #fff;
     width: 600px;
-    padding: 63px;
+    padding: 43px;
 
+    @include mobile{
+        left:50%;
+        top:50%; 
+        transform: translate(-50%, -50%); 
+        width: 500px;
+        min-height: 700px;
+    }
+    
     h1 {
         font-family: $headers-font;
         color: $main-color;
         font-size: 62px;
         font-weight: 800;
     }
-    // hr {
-    //     color: $main-color;
-    //     height: 3px;
-    //     opacity: inherit;
-    // }
+
     hr {
         background: linear-gradient(to right, $main-color, #fff);
         height: 3px;
         opacity: inherit;
-      }
+    }
 
     p {
-        line-height: 35px;
+        line-height: 30px;
     }
 
     button {
@@ -133,28 +176,119 @@ $height: 110vh;
         border: solid 1px rgb(138, 138, 138);
         margin-bottom: 8px;
         margin-top: 28px;
-
     }
+
     .close {
-        position: absolute;
         right: 32px;
         top: 32px;
         width: 32px;
         height: 32px;
-      }
-      .close:before, .close:after {
+    }
+
+    .close:before, .close:after {
         position: absolute;
         left: 15px;
         content: ' ';
         height: 33px;
         width: 2px;
         background-color: $main-color;
-      }
-      .close:before {
+    }
+
+    .close:before {
         transform: rotate(45deg);
-      }
-      .close:after {
+    }
+
+    .close:after {
         transform: rotate(-45deg);
-      }
+    }
 }
+
+@keyframes scale-in-bl {
+    0%{
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        -webkit-transform-origin: 0% 100%;
+        transform-origin: 0% 100%;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes scale-out-bl {
+    0%{
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      -webkit-transform-origin: 0% 100%;
+      transform-origin: 0% 100%;
+      opacity: 1;
+    }
+    100%{
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      -webkit-transform-origin: 0% 100%;
+      transform-origin: 0% 100%;
+      opacity: 1;
+    }
+}
+
+@keyframes scale-out-bl {
+    0%{
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      -webkit-transform-origin: 0% 100%;
+      transform-origin: 0% 100%;
+      opacity: 1;
+    }
+    100%{
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      -webkit-transform-origin: 0% 100%;
+      transform-origin: 0% 100%;
+      opacity: 1;
+    }
+}
+
+@keyframes scale-out-bottom {
+    0%{
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      -webkit-transform-origin: 50% 100%;
+      transform-origin: 50% 100%;
+      opacity: 1;
+    }
+    100%{
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      -webkit-transform-origin: 50% 100%;
+      transform-origin: 50% 100%;
+      opacity: 1;
+    }
+}
+  
+  
+  
 
