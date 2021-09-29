@@ -2,7 +2,7 @@ $main-color: #611818;
 $text-color: #fcfcfc;
 $headers-font: 'Merriweather', serif;
 $width: 768px;
-$height: 100vh;
+$height: 110vh;
 
 @mixin mobile {
     @media (max-width: $width) {
@@ -13,7 +13,9 @@ $height: 100vh;
 * {
     box-sizing: border-box;
   }
-
+.hidden {
+    display: none;
+}
 .content-wrapper {
     overflow: hidden;
     background-image: url('/assets/background.png');
@@ -35,6 +37,10 @@ $height: 100vh;
     position: absolute;
     left: 162px;
     bottom: 190px;
+
+    &:hover {
+        cursor: pointer;
+    }
 
     @include mobile{
         position:absolute;
@@ -88,5 +94,67 @@ $height: 100vh;
             }
         }
     }
+}
+.explore-box {
+    position: absolute;
+    left: 162px;
+    bottom: 43px;
+    background-color: #fff;
+    width: 600px;
+    padding: 63px;
+
+    h1 {
+        font-family: $headers-font;
+        color: $main-color;
+        font-size: 62px;
+        font-weight: 800;
+    }
+    // hr {
+    //     color: $main-color;
+    //     height: 3px;
+    //     opacity: inherit;
+    // }
+    hr {
+        background: linear-gradient(to right, $main-color, #fff);
+        height: 3px;
+        opacity: inherit;
+      }
+
+    p {
+        line-height: 35px;
+    }
+
+    button {
+        background: rgb(97,24,24);
+        background: linear-gradient(98deg, rgba(97,24,24,1) 17%, rgba(171,100,100,1) 100%);
+        color: $text-color;
+        padding: 9px 60px 9px 60px;
+        font-size: 21px;
+        border: solid 1px rgb(138, 138, 138);
+        margin-bottom: 8px;
+        margin-top: 28px;
+
+    }
+    .close {
+        position: absolute;
+        right: 32px;
+        top: 32px;
+        width: 32px;
+        height: 32px;
+      }
+      .close:before, .close:after {
+        position: absolute;
+        left: 15px;
+        content: ' ';
+        height: 33px;
+        width: 2px;
+        background-color: $main-color;
+      }
+      .close:before {
+        transform: rotate(45deg);
+      }
+      .close:after {
+        transform: rotate(-45deg);
+      }
 }
 
